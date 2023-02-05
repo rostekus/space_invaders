@@ -5,12 +5,12 @@
 #include "config.hpp"
 
 #define DEF_VALUE 100
-#define EF_HEALTH 100
+#define DEF_HEALTH 100
 
 Alien::Alien()
 {
     value = DEF_VALUE;
-    health = EF_HEALTH;
+    health = DEF_HEALTH;
     representation = ALIEN_REP;
     color = COLOR_GREEN;
     moveState = 1;
@@ -21,7 +21,7 @@ Alien::Alien(int xPosition, int yPosition)
     : Drawable(xPosition, yPosition)
 {
     value = DEF_VALUE;
-    health = EF_HEALTH;
+    health = DEF_HEALTH;
     representation = ALIEN_REP;
     color = COLOR_GREEN;
     velocity = 1;
@@ -33,7 +33,7 @@ Alien::Alien(int xPosition, int yPosition, int velocity)
     : Drawable(xPosition, yPosition)
 {
     value = DEF_VALUE;
-    health = EF_HEALTH;
+    health = DEF_HEALTH;
     representation = ALIEN_REP;
     color = COLOR_GREEN;
     velocity = velocity;

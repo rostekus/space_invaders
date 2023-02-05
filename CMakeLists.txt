@@ -24,7 +24,7 @@ set(SOURCE_FILES
         include/drawable.hpp
         src/drawable.cpp
         include/enemy.hpp
-        src/enemy.cpp)
+        src/enemy.cpp include/game.h src/game.cpp)
 add_executable(Project ${SOURCE_FILES})
 target_link_libraries(Project ncurses)
 target_include_directories(Project PUBLIC include )
