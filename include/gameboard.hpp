@@ -1,11 +1,3 @@
-//
-//  Board.hpp
-//  Space Invaders
-//
-//  Created by Mackenzie Boudreau, Ian Page, Carter McCullum, Branden Rice on 2019-07-10.
-//  Copyright © 2019 Group 9. All rights reserved.
-//
-
 #ifndef Board_hpp
 #define Board_hpp
 
@@ -17,9 +9,9 @@ class Entity;
 
 class Board {
 private:
-    int _width;
-    int _height;
-    const char* _message;
+    int width;
+    int height;
+    const char* message;
     WINDOW *window;
     std::vector<Entity*> gameObjects;
 

@@ -1,11 +1,3 @@
-//
-//  Constants.hpp
-//  Space Invaders
-//
-//  Created by Mackenzie Boudreau, Ian Page, Carter McCullum, Branden Rice on 2019-07-10.
-//  Copyright © 2019 Group 9. All rights reserved.
-//
-
 #define ALIEN_REP 'A'
 #define PLAYER_REP 'O'
 #define PROJECTILE_REP '^'

@@ -1,11 +1,3 @@
-//
-//  Entity.hpp
-//  Space Invaders
-//
-//  Created by Mackenzie Boudreau, Ian Page, Carter McCullum, Branden Rice on 2019-07-10.
-//  Copyright © 2019 Group 9. All rights reserved.
-//
-
 #ifndef Entity_hpp
 #define Entity_hpp
 
@@ -15,11 +7,11 @@
 class Entity
 {
 protected:
-    float *_position;
-    int _color = COLOR_WHITE;
-    int _velocity;
-    char _representation;
-    bool _destroyed;
+    float *position;
+    int color = COLOR_WHITE;
+    int velocity;
+    char representation;
+    bool destroyed;
 
 public:
     Entity();

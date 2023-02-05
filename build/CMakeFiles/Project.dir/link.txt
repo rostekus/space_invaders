@@ -1,0 +1,1 @@
+/usr/bin/g++ CMakeFiles/Project.dir/src/main.cpp.o CMakeFiles/Project.dir/src/missile.cpp.o CMakeFiles/Project.dir/src/player.cpp.o CMakeFiles/Project.dir/src/gameboard.cpp.o CMakeFiles/Project.dir/src/drawable.cpp.o CMakeFiles/Project.dir/src/enemy.cpp.o -o Project  -lncurses 

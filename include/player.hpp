@@ -1,11 +1,3 @@
-//
-//  Player.hpp
-//  Space Invaders
-//
-//  Created by Mackenzie Boudreau, Ian Page, Carter McCullum, Branden Rice on 2019-07-10.
-//  Copyright © 2019 Group 9. All rights reserved.
-//
-
 #ifndef Player_hpp
 #define Player_hpp
 
@@ -17,7 +9,7 @@
 class Player : public Entity
 {
 private:
-    int _lives;
+    int lives;
 
 public:
     Player();

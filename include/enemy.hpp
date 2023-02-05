@@ -1,11 +1,3 @@
-
-//  Alien.hpp
-//  Space Invaders
-//
-//  Created by Mackenzie Boudreau, Ian Page, Carter McCullum, Branden Rice on 2019-07-10.
-//  Copyright © 2019 Group 9. All rights reserved.
-//
-
 #ifndef Alien_hpp
 #define Alien_hpp
 
@@ -16,10 +8,10 @@
 class Alien : public Entity
 {
 private:
-    int _value;
-    int _health;
-    int _moveState;
-    int _moveStateDownToggle;
+    int value;
+    int health;
+    int moveState;
+    int moveStateDownToggle;
 
 public:
     Alien();

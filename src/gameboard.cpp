@@ -1,11 +1,3 @@
-//
-//  Board.cpp
-//  Space Invaders
-//
-//  Created by Mackenzie Boudreau, Ian Page, Carter McCullum, Branden Rice on 2019-07-10.
-//  Copyright © 2019 Group 9. All rights reserved.
-//
-
 #include <unistd.h>
 #include <math.h>
 #include <string>
@@ -16,7 +8,7 @@
 // Initialize board score
 int Board::score = 0;
 
-Board::Board(): _width(DEFAULT_BOARD_WIDTH), _height(DEFAULT_BOARD_HEIGHT), _message("") {
+Board::Board(): width(DEFAULT_BOARD_WIDTH), height(DEFAULT_BOARD_HEIGHT), message("") {
     initscr();
     start_color();
     init_color(COLOR_BLACK, 0, 0, 0);
@@ -31,7 +23,7 @@ Board::Board(): _width(DEFAULT_BOARD_WIDTH), _height(DEFAULT_BOARD_HEIGHT), _mes
     cbreak();
     curs_set(0); // Hide blinking cursor
     keypad(stdscr, TRUE); // Accept arrow keys as input
-    window = newwin(_height, _width, 1, 1); // Initialize new ncurses window
+    window = newwin(height, width, 1, 1); // Initialize new ncurses window
 }
 
 Board::~Board() {
@@ -43,11 +35,11 @@ Board::~Board() {
 
 // MARK: - Getters & Setters
 int Board::getHeight() {
-    return _height - 1;
+    return height - 1;
 }
 
 int Board::getWidth() {
-    return _width - 1;
+    return width - 1;
 }
 
 // MARK: - Board methods
@@ -68,7 +60,7 @@ void Board::update() {
         }
 
         // Delete object if needed
-        if (obj->isDestroyed() || obj->getPosX() > _width || obj->getPosY() > _height || obj->getPosY() < 0 || obj->getPosX() < 0) {
+        if (obj->isDestroyed() || obj->getPosX() > width || obj->getPosY() > height || obj->getPosY() < 0 || obj->getPosX() < 0) {
             gameObjects.erase(gameObjects.begin() + i);
             break;
         }
@@ -85,9 +77,9 @@ void Board::update() {
         mvwprintw(window, 0, 2, scoreMessage.c_str());
 
         // Write the game message if any
-        if (strlen(_message) > 0) {
-            int offset = floor(strlen(_message) / 2);
-            mvwprintw(window, floor(_height / 2), floor(_width / 2) - offset, _message);
+        if (strlen(message) > 0) {
+            int offset = floor(strlen(message) / 2);
+            mvwprintw(window, floor(height / 2), floor(width / 2) - offset, message);
         }
     }
     // Refresh the terminal
@@ -95,7 +87,7 @@ void Board::update() {
 }
 
 void Board::writeMessage(const char* message) {
-    _message = message;
+    message = message;
 }
 
 std::vector<Entity*> Board::getObjects(char representation) {
