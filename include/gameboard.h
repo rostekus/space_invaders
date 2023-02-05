@@ -5,8 +5,8 @@
 class GameBoard
 {
 private:
-    int width;
-    int height;
+    int width = 50;
+    int height = 10;
     Drawable board;
 
 public:
