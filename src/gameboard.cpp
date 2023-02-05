@@ -1,4 +1,12 @@
-//
-// Created by student on 2/5/23.
-//
+#include "gameboard.h"
+#include "drawable.h"
 
+void draw()
+{
+
+}
+
+Drawable getBoard()
+{
+
+}

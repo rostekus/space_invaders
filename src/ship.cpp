@@ -15,7 +15,7 @@ void Ship::move(int x, int y)
 
 }
 
-void Ship::draw()
+char Ship::draw()
 {
 
 }

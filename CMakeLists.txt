@@ -16,4 +16,4 @@ add_executable(space_invaders
         src/main.cpp
         src/missile.cpp
         src/player.cpp
-        src/ship.cpp)
+        src/ship.cpp include/gameboard.h src/gameboard.cpp include/drawable.h src/drawable.cpp)

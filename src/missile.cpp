@@ -9,3 +9,8 @@ void Missile::updatePos(int x, int y)
 {
 
 }
+
+char Missile::draw()
+{
+
+}

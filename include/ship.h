@@ -15,7 +15,7 @@ public:
     Ship(char imgChar, int x, int y);
     ~Ship();
     void move(int x, int y);
-    void draw();
+    char draw();
     Missile shoot();
 };
 

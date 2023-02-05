@@ -14,6 +14,7 @@ private:
 public:
     void missile(int x, int y, int speed);
     void updatePos(int x, int y);
+    char draw();
 };
 
 #endif //MISSILE_H
