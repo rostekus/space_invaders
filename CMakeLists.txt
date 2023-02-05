@@ -1,19 +1,33 @@
-cmake_minimum_required(VERSION 3.20)
-project(space_invaders)
+cmake_minimum_required(VERSION 3.4)
 
-set(CMAKE_CXX_STANDARD 14)
+#Configuration parameters of cmake
+set(CMAKE_CXX_COMPILER clang)#requires g++ to be available on PATH
+set(CMAKE_C_COMPILER gcc)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-include_directories(include)
+project(Project)
+enable_language(CXX)
 
-add_executable(space_invaders
-        include/enemy.h
-        include/game.h
-        include/missile.h
-        include/player.h
-        include/ship.h
-        src/enemy.cpp
-        src/game.cpp
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+set(CMAKE_VERBOSE_MAKEFILE TRUE)
+find_package(Curses REQUIRED)
+set(SOURCE_FILES
+        include/config.hpp
+       include/missile.hpp
+       include/player.hpp
         src/main.cpp
         src/missile.cpp
         src/player.cpp
-        src/ship.cpp include/gameboard.h src/gameboard.cpp include/drawable.h src/drawable.cpp)
+        include/gameboard.hpp
+        src/gameboard.cpp
+        include/drawable.hpp
+        src/drawable.cpp
+        include/enemy.hpp
+        src/enemy.cpp)
+add_executable(Project ${SOURCE_FILES})
+target_link_libraries(Project ncurses)
+target_include_directories(Project PUBLIC include )
+include_directories(
+        ${CMAKE_CURRENT_SOURCE_DIR}/include
+)
