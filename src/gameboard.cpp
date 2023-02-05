@@ -27,8 +27,8 @@ Board::Board(): width(DEFAULT_BOARD_WIDTH), height(DEFAULT_BOARD_HEIGHT), messag
 }
 
 Board::~Board() {
-    for (auto& entity: gameObjects) {
-        delete entity;
+    for (auto& Drawable: gameObjects) {
+        delete Drawable;
     }
     endwin();
 }
@@ -48,12 +48,12 @@ void Board::update() {
     wclear(window);
     box(window, WALL, FLOOR);
 
-    // Draw all game objects in entity vector
+    // Draw all game objects in Drawable vector
     for (int i = 0; i < gameObjects.size(); i++) {
-        Entity* obj = gameObjects.at(i);
+        Drawable* obj = gameObjects.at(i);
         // Check for any collisions
         for (int j = i + 1; j < gameObjects.size(); j++) {
-            Entity* obj2 = gameObjects.at(j);
+            Drawable* obj2 = gameObjects.at(j);
             if (obj->getPosX() == obj2->getPosX() && obj->getPosY() == obj2->getPosY()) {
                 obj->detectCollision(*obj2);
             }
@@ -90,8 +90,8 @@ void Board::writeMessage(const char* message) {
     message = message;
 }
 
-std::vector<Entity*> Board::getObjects(char representation) {
-    std::vector<Entity*> filtered = std::vector<Entity*>();
+std::vector<Drawable*> Board::getObjects(char representation) {
+    std::vector<Drawable*> filtered = std::vector<Drawable*>();
     for (int i = 0; i < gameObjects.size(); i++) {
         if (gameObjects.at(i)->getRepresentation() == representation)
             filtered.push_back(gameObjects.at(i));
@@ -105,6 +105,6 @@ int Board::getInput() {
     return wgetch(window);
 }
 
-void Board::addObject(Entity* object) {
+void Board::addObject(Drawable* object) {
     gameObjects.push_back(object);
 }

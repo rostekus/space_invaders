@@ -1,10 +1,10 @@
-#ifndef Entity_hpp
-#define Entity_hpp
+#ifndef Drawable_hpp
+#define Drawable_hpp
 
 #include <stdio.h>
 #include <curses.h>
 
-class Entity
+class Drawable
 {
 protected:
     float *position;
@@ -14,9 +14,9 @@ protected:
     bool destroyed;
 
 public:
-    Entity();
-    Entity(float x, float y);
-    virtual ~Entity();
+    Drawable();
+    Drawable(float x, float y);
+    virtual ~Drawable();
     float *getPos();
     int getColor();
     int getVel();
@@ -27,6 +27,6 @@ public:
     bool isDestroyed();
     char getRepresentation();
     virtual void update() = 0;
-    virtual void detectCollision(Entity &object);
+    virtual void detectCollision(Drawable &object);
 };
 #endif

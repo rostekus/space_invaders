@@ -44,12 +44,6 @@ drawable.hpp
 missile.hpp
 ../include/missile.hpp
 
-/home/student/Pulpit/space_invaders/src/drawable.cpp
-drawable.hpp
-/home/student/Pulpit/space_invaders/src/drawable.hpp
-math.h
--
-
 /home/student/Pulpit/space_invaders/src/enemy.cpp
 algorithm
 -

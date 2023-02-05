@@ -4,69 +4,69 @@
 #define DEF_X_POS 1.0f;
 #define DEF_Y_POS 1.0f;
 
-Entity::Entity()
+Drawable::Drawable()
 {
     position = new float[2];
     position[0] = DEF_X_POS;
     position[1] = DEF_Y_POS;
 }
 
-Entity::Entity(float xPosition, float yPosition)
+Drawable::Drawable(float xPosition, float yPosition)
 {
     position = new float[2];
     position[0] = xPosition;
     position[1] = yPosition;
 }
 
-Entity::~Entity()
+Drawable::~Drawable()
 {
     delete[] position;
 }
 
-float *Entity::getPos()
+float *Drawable::getPos()
 {
     return position;
 }
 
-int Entity::getColor()
+int Drawable::getColor()
 {
     return color;
 }
 
-int Entity::getVel()
+int Drawable::getVel()
 {
     return velocity;
 }
 
-void Entity::setPos(float x, float y)
+void Drawable::setPos(float x, float y)
 {
     position[0] = x;
     position[1] = y;
 }
 
-int Entity::getPosX()
+int Drawable::getPosX()
 {
     return (int)floor(position[0]);
 }
 
-int Entity::getPosY()
+int Drawable::getPosY()
 {
     return (int)floor(position[1]);
 }
 
-void Entity::destroy()
+void Drawable::destroy()
 {
     destroyed = true;
 }
 
-bool Entity::isDestroyed()
+bool Drawable::isDestroyed()
 {
     return destroyed;
 }
 
-char Entity::getRepresentation()
+char Drawable::getRepresentation()
 {
     return representation;
 }
 
-void Entity::detectCollision(Entity &object) {}
+void Drawable::detectCollision(Drawable &object) {}

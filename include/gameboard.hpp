@@ -5,7 +5,7 @@
 #include <curses.h>
 #include <vector>
 #include <string.h>
-class Entity;
+class Drawable;
 
 class Board {
 private:
@@ -13,7 +13,7 @@ private:
     int height;
     const char* message;
     WINDOW *window;
-    std::vector<Entity*> gameObjects;
+    std::vector<Drawable*> gameObjects;
 
 public:
     static int score;
@@ -24,9 +24,9 @@ public:
     int getWidth();
     void update();
     void writeMessage(const char* message);
-    void addObject(Entity* object);
+    void addObject(Drawable* object);
     int getInput();
-    std::vector<Entity*> getObjects(char representation);
+    std::vector<Drawable*> getObjects(char representation);
 };
 
 #endif

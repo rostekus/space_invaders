@@ -29,9 +29,9 @@ void Player::moveLeft()
     setPos(position[0] - 1, position[1]);
 }
 
-Projectile Player::shoot()
+Missile Player::shoot()
 {
-    return Projectile(true, getPosX(), getPosY() + 1);
+    return Missile(true, getPosX(), getPosY() + 1);
 }
 
 int Player::getLives()
@@ -51,7 +51,7 @@ void Player::resetLives()
     lives = DEF_LIVES;
 }
 
-void Player::detectCollision(Entity &object)
+void Player::detectCollision(Drawable &object)
 {
     if (object.getRepresentation() == ALIEN_REP)
     {

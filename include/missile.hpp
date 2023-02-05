@@ -1,19 +1,19 @@
-#ifndef Projectile_hpp
-#define Projectile_hpp
+#ifndef Missile_hpp
+#define Missile_hpp
 
 #include <stdio.h>
 #include "drawable.hpp"
 
-class Projectile : public Entity
+class Missile : public Drawable
 {
 private:
     int power;
     bool friendly;
 
 public:
-    Projectile(bool alignment);
-    Projectile(bool alignment, int x, int y);
-    ~Projectile();
+    Missile(bool alignment);
+    Missile(bool alignment, int x, int y);
+    ~Missile();
     int getPower();
     bool getFriendly();
     void update() override;

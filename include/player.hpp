@@ -6,7 +6,7 @@
 #include "drawable.hpp"
 #include "missile.hpp"
 
-class Player : public Entity
+class Player : public Drawable
 {
 private:
     int lives;
@@ -21,8 +21,8 @@ public:
     void update() override;
     void moveLeft();
     void moveRight();
-    Projectile shoot();
-    void detectCollision(Entity &object) override;
+    Missile shoot();
+    void detectCollision(Drawable &object) override;
 };
 
 #endif

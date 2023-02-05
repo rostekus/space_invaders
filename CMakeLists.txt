@@ -14,8 +14,8 @@ set(CMAKE_VERBOSE_MAKEFILE TRUE)
 find_package(Curses REQUIRED)
 set(SOURCE_FILES
         include/config.hpp
-       include/missile.hpp
-       include/player.hpp
+        include/missile.hpp
+        include/player.hpp
         src/main.cpp
         src/missile.cpp
         src/player.cpp

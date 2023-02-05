@@ -5,7 +5,7 @@
 
 #include "drawable.hpp"
 
-class Alien : public Entity
+class Alien : public Drawable
 {
 private:
     int value;
@@ -22,6 +22,6 @@ public:
     int getHealth();
     int takeDamage(int damage);
     void update() override;
-    void detectCollision(Entity &object) override;
+    void detectCollision(Drawable &object) override;
 };
 #endif

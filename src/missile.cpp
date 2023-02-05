@@ -1,31 +1,31 @@
 #include "missile.hpp"
 #include "config.hpp"
 
-Projectile::Projectile(bool alignment)
+Missile::Missile(bool alignment)
     : power(1), friendly(alignment)
 {
-    representation = PROJECTILE_REP;
+    representation = Missile_REP;
 }
 
-Projectile::Projectile(bool alignment, int xPosition, int yPosition)
-    : Entity(xPosition, yPosition), power(1), friendly(alignment)
+Missile::Missile(bool alignment, int xPosition, int yPosition)
+    : Drawable(xPosition, yPosition), power(1), friendly(alignment)
 {
-    representation = PROJECTILE_REP;
+    representation = Missile_REP;
 }
 
-Projectile::~Projectile() {}
+Missile::~Missile() {}
 
-int Projectile::getPower()
+int Missile::getPower()
 {
     return power;
 }
 
-bool Projectile::getFriendly()
+bool Missile::getFriendly()
 {
     return friendly;
 }
 
-void Projectile::update()
+void Missile::update()
 {
     setPos(getPosX(), getPosY() - 1);
 }

@@ -18,7 +18,7 @@ Alien::Alien()
 }
 
 Alien::Alien(int xPosition, int yPosition)
-    : Entity(xPosition, yPosition)
+    : Drawable(xPosition, yPosition)
 {
     value = DEF_VALUE;
     health = EF_HEALTH;
@@ -30,7 +30,7 @@ Alien::Alien(int xPosition, int yPosition)
 }
 
 Alien::Alien(int xPosition, int yPosition, int velocity)
-    : Entity(xPosition, yPosition)
+    : Drawable(xPosition, yPosition)
 {
     value = DEF_VALUE;
     health = EF_HEALTH;
@@ -108,9 +108,9 @@ void Alien::update()
     }
 }
 
-void Alien::detectCollision(Entity &object)
+void Alien::detectCollision(Drawable &object)
 {
-    if (object.getRepresentation() == PROJECTILE_REP)
+    if (object.getRepresentation() == Missile_REP)
     {
         if (takeDamage(34) == 0)
         {
