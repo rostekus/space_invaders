@@ -1,6 +1,8 @@
-#define ALIEN_REP 'A'
-#define PLAYER_REP 'O'
-#define Missile_REP '^'
+#define ENEMY_REP 'X'
+#define PLAYER_REP '^'
+#define MISSILE_REP '*'
+
+#define DEF_LIVES 2
 
 #define WALL '|'
 #define FLOOR '-'
