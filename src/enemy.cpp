@@ -11,7 +11,7 @@ Alien::Alien()
 {
     value = DEF_VALUE;
     health = DEF_HEALTH;
-    representation = ALIEN_REP;
+    representation = ENEMY_REP;
     color = COLOR_GREEN;
     moveState = 1;
     moveStateDownToggle = -1;
@@ -22,7 +22,7 @@ Alien::Alien(int xPosition, int yPosition)
 {
     value = DEF_VALUE;
     health = DEF_HEALTH;
-    representation = ALIEN_REP;
+    representation = ENEMY_REP;
     color = COLOR_GREEN;
     velocity = 1;
     moveState = 1;
@@ -34,7 +34,7 @@ Alien::Alien(int xPosition, int yPosition, int velocity)
 {
     value = DEF_VALUE;
     health = DEF_HEALTH;
-    representation = ALIEN_REP;
+    representation = ENEMY_REP;
     color = COLOR_GREEN;
     velocity = velocity;
     moveState = 1;
@@ -67,7 +67,7 @@ void Alien::update()
     }
     else if (health <= 66)
     {
-        color = COLOR_MAGENTA;
+        color = COLOR_YELLOW;
     }
 
     if (getPosY() == moveStateDownToggle && getPosX() == 1)
@@ -94,15 +94,12 @@ void Alien::update()
     switch (moveState)
     {
     case 1:
-        // move left
         setPos(position[0] - (0.05 + 0.02 * velocity), position[1]);
         break;
     case 2:
-        // move right
         setPos(position[0] + (0.05 + 0.02 * velocity), position[1]);
         break;
     case 3:
-        // move down
         setPos(position[0], position[1] + 0.05 + 0.02 * velocity);
         break;
     }
@@ -110,7 +107,7 @@ void Alien::update()
 
 void Alien::detectCollision(Drawable &object)
 {
-    if (object.getRepresentation() == Missile_REP)
+    if (object.getRepresentation() == MISSILE_REP)
     {
         if (takeDamage(34) == 0)
         {

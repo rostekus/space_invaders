@@ -4,13 +4,13 @@
 Missile::Missile(bool alignment)
     : power(1), friendly(alignment)
 {
-    representation = Missile_REP;
+    representation = MISSILE_REP;
 }
 
 Missile::Missile(bool alignment, int xPosition, int yPosition)
     : Drawable(xPosition, yPosition), power(1), friendly(alignment)
 {
-    representation = Missile_REP;
+    representation = MISSILE_REP;
 }
 
 Missile::~Missile() {}

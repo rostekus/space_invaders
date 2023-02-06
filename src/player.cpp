@@ -1,8 +1,6 @@
 #include "player.hpp"
 #include "config.hpp"
 
-#define DEF_LIVES 2
-
 Player::Player()
 {
     lives = DEF_LIVES;
@@ -53,7 +51,7 @@ void Player::resetLives()
 
 void Player::detectCollision(Drawable &object)
 {
-    if (object.getRepresentation() == ALIEN_REP)
+    if (object.getRepresentation() == ENEMY_REP)
     {
         loseLife();
     }
