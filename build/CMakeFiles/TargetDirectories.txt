@@ -1,3 +1,0 @@
-/home/student/Pulpit/space_invaders/build/CMakeFiles/rebuild_cache.dir
-/home/student/Pulpit/space_invaders/build/CMakeFiles/edit_cache.dir
-/home/student/Pulpit/space_invaders/build/CMakeFiles/Project.dir
