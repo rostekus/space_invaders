@@ -22,8 +22,8 @@ void Game::populateBoardwithEnemy()
     {
         for (int j = 0; j < this->numCols; j++)
         {
-            Alien *alien = new Alien(this->midSpace - (this->numCols / 2) + j, i + 1);
-            this->board->addObject(new Alien(this->midSpace - (this->numCols / 2) + j, i + 1));
+            Enemy *enemy = new Enemy(this->midSpace - (this->numCols / 2) + j, i + 1);
+            this->board->addObject(new Enemy(this->midSpace - (this->numCols / 2) + j, i + 1));
         }
     }
 }
@@ -46,16 +46,16 @@ void Game::runGame()
             {
                 for (int j = 0; j < numCols; j++)
                 {
-                    Alien *alien = new Alien(this->midSpace - (this->numCols / 2) + j, i + 1, this->round);
-                    board->addObject(new Alien(this->midSpace - (this->numCols / 2) + j, i + 1, this->round));
+                    Enemy *enemy = new Enemy(this->midSpace - (this->numCols / 2) + j, i + 1, this->round);
+                    board->addObject(new Enemy(this->midSpace - (this->numCols / 2) + j, i + 1, this->round));
                 }
             }
         }
         // Player loses life when aliens hit bottom
         auto aliens = this->board->getObjects(ENEMY_REP);
-        for (auto &alien : aliens)
+        for (auto &enemy : aliens)
         {
-            if (alien->getPosY() > this->player->getPosY())
+            if (enemy->getPosY() > this->player->getPosY())
             {
                 this->player->loseLife();
             }

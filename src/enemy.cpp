@@ -7,7 +7,7 @@
 #define DEF_VALUE 100
 #define DEF_HEALTH 100
 
-Alien::Alien()
+Enemy::Enemy()
 {
     value = DEF_VALUE;
     health = DEF_HEALTH;
@@ -17,7 +17,7 @@ Alien::Alien()
     moveStateDownToggle = -1;
 }
 
-Alien::Alien(int xPosition, int yPosition)
+Enemy::Enemy(int xPosition, int yPosition)
     : Drawable(xPosition, yPosition)
 {
     value = DEF_VALUE;
@@ -29,7 +29,7 @@ Alien::Alien(int xPosition, int yPosition)
     moveStateDownToggle = -1;
 }
 
-Alien::Alien(int xPosition, int yPosition, int velocity)
+Enemy::Enemy(int xPosition, int yPosition, int velocity)
     : Drawable(xPosition, yPosition)
 {
     value = DEF_VALUE;
@@ -41,25 +41,25 @@ Alien::Alien(int xPosition, int yPosition, int velocity)
     moveStateDownToggle = -1;
 }
 
-Alien::~Alien() {}
+Enemy::~Enemy() {}
 
-int Alien::getValue()
+int Enemy::getValue()
 {
     return value;
 }
 
-int Alien::getHealth()
+int Enemy::getHealth()
 {
     return health;
 }
 
-int Alien::takeDamage(int damage)
+int Enemy::takeDamage(int damage)
 {
     health = std::max(health - damage, 0);
     return health;
 }
 
-void Alien::update()
+void Enemy::update()
 {
     if (health <= 33)
     {
@@ -105,7 +105,7 @@ void Alien::update()
     }
 }
 
-void Alien::detectCollision(Drawable &object)
+void Enemy::detectCollision(Drawable &object)
 {
     if (object.getRepresentation() == MISSILE_REP)
     {

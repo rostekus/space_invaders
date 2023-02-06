@@ -5,7 +5,7 @@
 
 #include "drawable.hpp"
 
-class Alien : public Drawable
+class Enemy : public Drawable
 {
 private:
     int value;
@@ -14,10 +14,10 @@ private:
     int moveStateDownToggle;
 
 public:
-    Alien();
-    Alien(int x, int y);
-    Alien(int x, int y, int v);
-    ~Alien();
+    Enemy();
+    Enemy(int x, int y);
+    Enemy(int x, int y, int v);
+    ~Enemy();
     int getValue();
     int getHealth();
     int takeDamage(int damage);
