@@ -69,6 +69,7 @@ include_directories(
 set(SOURCE_TEST_FILES
 
         test/master.cpp
+        test/TestGame.cpp
         test/TestMissile.cpp
         test/TestEnemy.cpp
         test/TestPlayer.cpp
@@ -78,6 +79,7 @@ set(SOURCE_TEST_FILES
         src/missile.cpp
         src/player.cpp
         src/gameboard.cpp
+        src/game.cpp
         )
 
 
