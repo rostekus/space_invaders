@@ -31,3 +31,89 @@ target_include_directories(Project PUBLIC include )
 include_directories(
         ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
+
+#TESTs
+
+find_package (Boost 1.65.0 COMPONENTS "unit_test_framework" REQUIRED)
+
+
+
+include_directories(
+
+        ${CMAKE_CURRENT_SOURCE_DIR}/include
+
+        ${Boost_INCLUDE_DIRS}
+
+)
+
+
+
+#TESTs
+
+find_package (Boost 1.65.0 COMPONENTS "unit_test_framework" REQUIRED)
+
+
+
+include_directories(
+
+        ${CMAKE_CURRENT_SOURCE_DIR}/include
+
+        ${Boost_INCLUDE_DIRS}
+
+)
+
+
+
+#Test source files here
+
+set(SOURCE_TEST_FILES
+
+        test/master.cpp
+        test/TestGame.cpp
+        test/TestMissile.cpp
+        test/TestEnemy.cpp
+        test/TestPlayer.cpp
+        test/TestBoard.cpp
+        src/drawable.cpp
+        src/enemy.cpp
+        src/missile.cpp
+        src/player.cpp
+        src/gameboard.cpp
+        src/game.cpp
+        )
+
+
+
+add_executable(TestProject ${SOURCE_TEST_FILES})
+target_link_libraries(TestProject ncurses)
+
+
+target_include_directories(TestProject PUBLIC include)
+
+
+
+target_link_libraries (TestProject
+
+        ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY})
+
+
+
+enable_testing()
+
+
+
+add_test(NAME Test COMMAND TestProject
+
+        --report_level=detailed
+
+        --log_level=all
+
+        --color_output=yes)
+
+
+
+add_custom_target(check ${CMAKE_COMMAND} -E env CTEST_OUTPUT_ON_FAILURE=1 BOOST_TEST_LOG_LEVEL=all
+
+        ${CMAKE_CTEST_COMMAND} -C $<CONFIGURATION> --verbose
+
+        WORKING_DIRECTORY ${CMAKE_BINARY_DIR})

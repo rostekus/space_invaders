@@ -4,12 +4,8 @@
 #include "enemy.hpp"
 #include "config.hpp"
 
-#define DEF_VALUE 100
-#define DEF_HEALTH 100
-
 Enemy::Enemy()
 {
-    value = DEF_VALUE;
     health = DEF_HEALTH;
     representation = ENEMY_REP;
     color = COLOR_GREEN;
@@ -20,7 +16,7 @@ Enemy::Enemy()
 Enemy::Enemy(int xPosition, int yPosition)
     : Drawable(xPosition, yPosition)
 {
-    value = DEF_VALUE;
+
     health = DEF_HEALTH;
     representation = ENEMY_REP;
     color = COLOR_GREEN;
@@ -32,7 +28,6 @@ Enemy::Enemy(int xPosition, int yPosition)
 Enemy::Enemy(int xPosition, int yPosition, int velocity)
     : Drawable(xPosition, yPosition)
 {
-    value = DEF_VALUE;
     health = DEF_HEALTH;
     representation = ENEMY_REP;
     color = COLOR_GREEN;
@@ -42,11 +37,6 @@ Enemy::Enemy(int xPosition, int yPosition, int velocity)
 }
 
 Enemy::~Enemy() {}
-
-int Enemy::getValue()
-{
-    return value;
-}
 
 int Enemy::getHealth()
 {

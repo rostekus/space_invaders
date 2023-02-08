@@ -11,6 +11,11 @@ Game::Game()
     numRows = 2;
     numCols = 4;
 }
+Game::~Game()
+{
+    delete this->board;
+    delete this->player;
+}
 
 void Game::addPlayerToBoard()
 {
@@ -35,33 +40,19 @@ void Game::runGame()
         // Check if game is over
         if (this->player->getLives() <= 0)
         {
-            this->board->writeMessage("Game Over.");
+            this->isGameOver = true;
             break;
         }
         // Next round
         if (this->board->getObjects(ENEMY_REP).size() == 0)
         {
-            this->round++;
-            for (int i = 0; i < numRows; i++)
-            {
-                for (int j = 0; j < numCols; j++)
-                {
-                    Enemy *enemy = new Enemy(this->midSpace - (this->numCols / 2) + j, i + 1, this->round);
-                    board->addObject(new Enemy(this->midSpace - (this->numCols / 2) + j, i + 1, this->round));
-                }
-            }
+            this->nextRound();
         }
         // Player loses life when aliens hit bottom
-        auto aliens = this->board->getObjects(ENEMY_REP);
-        for (auto &enemy : aliens)
-        {
-            if (enemy->getPosY() > this->player->getPosY())
-            {
-                this->player->loseLife();
-            }
-        }
-
+        this->checkAlienHitPlayer();
+        // Update board
         this->board->update();
+        // Move player
         this->movePlayer();
     }
 }
@@ -88,4 +79,38 @@ void Game::movePlayer()
         this->board->addObject(new Missile(true, this->player->getPosX(), this->player->getPosY() - 1));
         break;
     }
+}
+
+void Game::nextRound()
+{
+
+    this->round++;
+    for (int i = 0; i < numRows; i++)
+    {
+        for (int j = 0; j < numCols; j++)
+        {
+            Enemy *enemy = new Enemy(this->midSpace - (this->numCols / 2) + j, i + 1, this->round);
+            board->addObject(new Enemy(this->midSpace - (this->numCols / 2) + j, i + 1, this->round));
+        }
+    }
+}
+
+void Game::checkAlienHitPlayer()
+{
+    auto aliens = this->board->getObjects(ENEMY_REP);
+    for (auto &enemy : aliens)
+    {
+        if (enemy->getPosY() > this->player->getPosY())
+        {
+            this->player->loseLife();
+        }
+    }
+}
+Board *Game::getBoard()
+{
+    return this->board;
+}
+Player *Game::getPlayer()
+{
+    return this->player;
 }

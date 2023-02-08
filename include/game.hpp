@@ -22,11 +22,15 @@ public:
     bool isGameOver;
     int score;
     Game();
-    ~Game(){};
+    ~Game();
     void addPlayerToBoard();
     void populateBoardwithEnemy();
     void runGame();
     void movePlayer();
+    void nextRound();
+    void checkAlienHitPlayer();
+    Board *getBoard();
+    Player *getPlayer();
 };
 
 #endif // GAME_H

@@ -1,4 +1,5 @@
 #define ENEMY_REP 'X'
+#define DEF_HEALTH 100
 #define PLAYER_REP '^'
 #define MISSILE_REP '*'
 
