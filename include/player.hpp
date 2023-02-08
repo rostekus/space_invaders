@@ -16,6 +16,8 @@ public:
     Player(int x, int y);
     ~Player();
     int getLives();
+    int getposX();
+    int getposY();
     void loseLife();
     void resetLives();
     void update() override;

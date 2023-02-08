@@ -56,3 +56,13 @@ void Player::detectCollision(Drawable &object)
         loseLife();
     }
 }
+
+int Player::getposX()
+{
+    return position[0];
+}
+
+int Player::getposY()
+{
+    return position[1];
+}
