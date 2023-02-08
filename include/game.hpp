@@ -27,6 +27,8 @@ public:
     void populateBoardwithEnemy();
     void runGame();
     void movePlayer();
+    void nextRound();
+    void checkAlienHitPlayer();
 };
 
 #endif // GAME_H

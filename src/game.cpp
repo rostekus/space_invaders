@@ -45,27 +45,13 @@ void Game::runGame()
         // Next round
         if (this->board->getObjects(ENEMY_REP).size() == 0)
         {
-            this->round++;
-            for (int i = 0; i < numRows; i++)
-            {
-                for (int j = 0; j < numCols; j++)
-                {
-                    Enemy *enemy = new Enemy(this->midSpace - (this->numCols / 2) + j, i + 1, this->round);
-                    board->addObject(new Enemy(this->midSpace - (this->numCols / 2) + j, i + 1, this->round));
-                }
-            }
+            this->nextRound();
         }
         // Player loses life when aliens hit bottom
-        auto aliens = this->board->getObjects(ENEMY_REP);
-        for (auto &enemy : aliens)
-        {
-            if (enemy->getPosY() > this->player->getPosY())
-            {
-                this->player->loseLife();
-            }
-        }
-
+        this->checkAlienHitPlayer();
+        // Update board
         this->board->update();
+        // Move player
         this->movePlayer();
     }
 }
@@ -91,5 +77,31 @@ void Game::movePlayer()
         Missile *p = new Missile(true, this->player->getPosX(), this->player->getPosY() - 1);
         this->board->addObject(new Missile(true, this->player->getPosX(), this->player->getPosY() - 1));
         break;
+    }
+}
+
+void Game::nextRound()
+{
+
+    this->round++;
+    for (int i = 0; i < numRows; i++)
+    {
+        for (int j = 0; j < numCols; j++)
+        {
+            Enemy *enemy = new Enemy(this->midSpace - (this->numCols / 2) + j, i + 1, this->round);
+            board->addObject(new Enemy(this->midSpace - (this->numCols / 2) + j, i + 1, this->round));
+        }
+    }
+}
+
+void Game::checkAlienHitPlayer()
+{
+    auto aliens = this->board->getObjects(ENEMY_REP);
+    for (auto &enemy : aliens)
+    {
+        if (enemy->getPosY() > this->player->getPosY())
+        {
+            this->player->loseLife();
+        }
     }
 }
