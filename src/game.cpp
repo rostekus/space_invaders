@@ -11,6 +11,11 @@ Game::Game()
     numRows = 2;
     numCols = 4;
 }
+Game::~Game()
+{
+    delete this->board;
+    delete this->player;
+}
 
 void Game::addPlayerToBoard()
 {
@@ -35,7 +40,6 @@ void Game::runGame()
         // Check if game is over
         if (this->player->getLives() <= 0)
         {
-            this->board->writeMessage("Game Over.");
             break;
         }
         // Next round

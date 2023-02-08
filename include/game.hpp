@@ -22,7 +22,7 @@ public:
     bool isGameOver;
     int score;
     Game();
-    ~Game(){};
+    ~Game();
     void addPlayerToBoard();
     void populateBoardwithEnemy();
     void runGame();
