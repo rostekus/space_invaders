@@ -1,5 +1,5 @@
-#ifndef Alien_hpp
-#define Alien_hpp
+#ifndef Enemy_hpp
+#define Enemy_hpp
 
 #include <stdio.h>
 
@@ -8,7 +8,6 @@
 class Enemy : public Drawable
 {
 private:
-    int value;
     int health;
     int moveState;
     int moveStateDownToggle;
@@ -18,7 +17,6 @@ public:
     Enemy(int x, int y);
     Enemy(int x, int y, int v);
     ~Enemy();
-    int getValue();
     int getHealth();
     int takeDamage(int damage);
     void update() override;
