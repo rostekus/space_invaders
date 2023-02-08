@@ -15,6 +15,7 @@ BOOST_AUTO_TEST_CASE(testEnemyHitPlayer)
     game->getBoard()->addObject(new Enemy(posXEnemy, posYEnemy));
     game->checkAlienHitPlayer();
     BOOST_CHECK_EQUAL(DEF_LIVES - 1, game->getPlayer()->getLives());
+    delete game;
 }
 
 BOOST_AUTO_TEST_CASE(testBreakLoopWhenGameOver)
@@ -27,6 +28,7 @@ BOOST_AUTO_TEST_CASE(testBreakLoopWhenGameOver)
     }
     game->runGame();
     BOOST_CHECK_EQUAL(game->checkGameOver(), true);
+    delete game;
 }
 
 BOOST_AUTO_TEST_SUITE_END()
