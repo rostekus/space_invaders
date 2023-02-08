@@ -68,6 +68,7 @@ void Board::update()
         if (obj->isDestroyed() || obj->getPosX() > width || obj->getPosY() > height || obj->getPosY() < 0 || obj->getPosX() < 0)
         {
             gameObjects.erase(gameObjects.begin() + i);
+            delete obj;
             break;
         }
 
