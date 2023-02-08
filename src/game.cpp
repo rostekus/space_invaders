@@ -40,6 +40,7 @@ void Game::runGame()
         // Check if game is over
         if (this->player->getLives() <= 0)
         {
+            this->isGameOver = true;
             break;
         }
         // Next round
@@ -104,4 +105,12 @@ void Game::checkAlienHitPlayer()
             this->player->loseLife();
         }
     }
+}
+Board *Game::getBoard()
+{
+    return this->board;
+}
+Player *Game::getPlayer()
+{
+    return this->player;
 }
