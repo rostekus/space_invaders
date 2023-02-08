@@ -32,6 +32,8 @@ Board::~Board()
     }
     gameObjects.clear();
     endwin();
+    delete window;
+    system("clear");
 }
 
 int Board::getHeight()
