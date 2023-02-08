@@ -29,6 +29,8 @@ public:
     void movePlayer();
     void nextRound();
     void checkAlienHitPlayer();
+    Board *getBoard();
+    Player *getPlayer();
 };
 
 #endif // GAME_H
