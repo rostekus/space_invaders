@@ -38,9 +38,8 @@ void Game::runGame()
     while (true)
     {
         // Check if game is over
-        if (this->player->getLives() <= 0)
+        if (this->checkGameOver())
         {
-            this->isGameOver = true;
             break;
         }
         // Next round
@@ -55,6 +54,16 @@ void Game::runGame()
         // Move player
         this->movePlayer();
     }
+}
+
+bool Game::checkGameOver()
+{
+    if (this->player->getLives() <= 0)
+    {
+        this->isGameOver = true;
+        return true;
+    }
+    return false;
 }
 
 void Game::movePlayer()

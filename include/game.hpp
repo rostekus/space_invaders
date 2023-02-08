@@ -29,6 +29,7 @@ public:
     void movePlayer();
     void nextRound();
     void checkAlienHitPlayer();
+    bool checkGameOver();
     Board *getBoard();
     Player *getPlayer();
 };
